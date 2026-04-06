@@ -32,9 +32,9 @@ struct Params {
         cam_intrinsic_map[1] = param_parser.as<cv::Mat>("cam1", "intrinsics");
         T_cam_imu_map[0] = param_parser.as<Eigen::Matrix4d>("cam0", "T_cam_imu").inverse();
         T_cam_imu_map[1] = param_parser.as<Eigen::Matrix4d>("cam1", "T_cam_imu").inverse();
-        exposureUs = param_parser.as<int>("exposure_time");
+        exposureUs = param_parser.as<int>("exposureUs");
 
-        sensitivityIso = param_parser.as<int>("sensitivity_iso");
+        sensitivityIso = param_parser.as<int>("sensitivityIso");
     }
 
     std::map<size_t, Eigen::Matrix4d> T_cam_imu_map;

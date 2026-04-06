@@ -53,5 +53,5 @@ parallax_thres: 20
 reprojection_error_thres: 0.01
 
 # stereo settigs
-exposure_time: 4000
-sensitivity_iso: 800
+exposureUs: 2000
+sensitivityIso: 800

@@ -54,27 +54,11 @@ target_link_libraries(
          depthai::core
          pangolin::pangolin)
 
-add_executable(feature_tracker test/test_featureTracker.cpp
-                               src/featureTracker.cpp)
-
-target_include_directories(feature_tracker PRIVATE include)
-target_link_libraries(
-  feature_tracker PRIVATE depthai::core pangolin::pangolin yaml-cpp
-                          ${OpenCV_LIBS} Eigen3::Eigen)
 add_executable(estimator test/test_estimator.cpp)
 target_link_libraries(estimator PRIVATE core)
 
-add_executable(synchoronizer test/test_synchronizer.cpp)
-target_include_directories(synchoronizer PRIVATE include)
-target_link_libraries(
-  synchoronizer PRIVATE depthai::core pangolin::pangolin yaml-cpp
-                        ${OpenCV_LIBS} Eigen3::Eigen)
-
-add_executable(params_parser test/test_paramsParser.cpp)
-target_include_directories(params_parser PRIVATE include)
-target_link_libraries(params_parser PRIVATE yaml-cpp ${OpenCV_LIBS}
-                                            Eigen3::Eigen)
-# target_link_libraries(syncBuffer PRIVATE core depthai::core
-# pangolin::pangolin) if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR
-# CMAKE_CXX_COMPILER_ID STREQUAL "Clang") target_compile_options(core PUBLIC
-# $<$<CONFIG:Debug>:-g -O0> $<$<CONFIG:Release>:-O3 -march=native>) endif()
+if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL
+                                           "Clang")
+  target_compile_options(core PUBLIC $<$<CONFIG:Debug>:-g -O0>
+                                     $<$<CONFIG:Release>:-O3 -march=native>)
+endif()
