@@ -1,0 +1,37 @@
+---
+repos:
+    - repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v4.6.0
+      hooks:
+          - id: check-case-conflict
+          - id: check-merge-conflict
+          - id: check-symlinks
+          - id: check-xml
+          - id: check-yaml
+          - id: end-of-file-fixer
+          - id: mixed-line-ending
+          - id: trailing-whitespace
+          - id: fix-byte-order-marker
+
+    - repo: https://github.com/pre-commit/mirrors-clang-format
+      rev: v14.0.6
+      hooks:
+          - id: clang-format
+            args: [-fallback-style=none]
+            files: \.(h|hh|hxx|hpp|c|cc|cpp|cxx)$
+
+    - repo: https://github.com/cheshirekow/cmake-format-precommit
+      rev: v0.6.13
+      hooks:
+          - id: cmake-format
+            files: (CMakeLists\.txt|\.cmake)$
+
+    - repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v1.2.3
+      hooks:
+          - id: trailing-whitespace
+
+    - repo: https://github.com/daniela-winkler/pre-commit-hook-yamlfmt
+      rev: 0.2.1
+      hooks:
+          - id: yamlfmt
